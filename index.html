@@ -63,7 +63,7 @@
             </sup>
         </h2>
         <div class="p-bl">
-            <h3>本地静态</h3>
+            <h3>开发版静态</h3>
             <div class="ef-reverse">
                 <svg width="80px" height="80px">
                     <image x="0" y="0" width="80px" height="80px" xlink:href="res/macbook.svg"></image>
@@ -113,7 +113,7 @@
         </div>
     </div>
     <div id="title_hosts_2" class="step hostseq top title" data-x="1200" data-y="-800">
-        <div class="p-bl">
+        <div class="p-tl">
             <h3>移动端</h3>
             <div class="ef-reverse">
                 <svg width="80px" height="80px">
@@ -121,31 +121,51 @@
                 </svg>
             </div>
         </div>
-        <label class="p-bc" for="popup_proxy">
+        <label class="p-tc" for="popup_proxy">
             <h3>代理服务器</h3>
             <svg class="ef-reverse" width="80px" height="80px">
                 <image x="0" y="0" width="80px" height="80px" xlink:href="res/macbook.svg"></image>
             </svg>
         </label>
-        <div class="p-br">
-            <h3>本地静态</h3>
+        <div class="p-bl">
+            <h3>开发版静态</h3>
             <div class="ef-reverse">
                 <svg width="80px" height="80px">
                     <image x="0" y="0" width="80px" height="80px" xlink:href="res/macbook.svg"></image>
                 </svg>
             </div>
+            <p>file:///</p>
+        </div>
+        <div class="p-br">
+            <h3>云端静态</h3>
+            <div class="ef-reverse">
+                <svg width="80px" height="80px">
+                    <image x="0" y="0" width="80px" height="80px" xlink:href="res/globe.svg"></image>
+                </svg>
+            </div>
+            <p>http://t.com</p>
+        </div>
+        <div class="p-bc">
+            <h3>hosts</h3>
+            <div class="ef-reverse">
+                <svg width="80px" height="80px">
+                    <image x="0" y="0" width="80px" height="80px" xlink:href="res/document.svg"></image>
+                </svg>
+            </div>
+            <p class="host-id switch-o">192.168.0.xx t.com</p>
         </div>
         <div class="popup-container">
             <input type="checkbox" id="popup_proxy" class="dn">
             <div class="popup switch-o tc">
                 <ol class="tl">
                     <li>使用fiddler(windows)或tcpdump(*nix)，构建代理服务器</li>
-                    <li>修改hosts，链接静态服务器</li>
                 </ol>
             </div>
         </div>
         <div class="c-bl2c switch-c-width"></div>
         <div class="c-bc2r switch-c-width"></div>
+        <div class="c-lt2b switch-c-height"></div>
+        <div class="c-tl2c switch-c-width"></div>
         <h2>
             host绑定 代理方案
             <sup>

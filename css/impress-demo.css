@@ -151,16 +151,28 @@ h3 { font-size: 30px; }
 .c-ct2b ,
 .c-lt2b ,
 .c-bl2c ,
-.c-bc2r { position: absolute; background: #fff; }
+.c-bc2r ,
+.c-tl2c ,
+.c-tc2r { position: absolute; background: #fff; }
 
 .c-ct2b ,
 .c-lt2b { height: 55px; width: 4px; top: -128px; }
 
 .c-bl2c ,
-.c-bc2r { height: 4px ; width: 190px ; top: 20px; }
+.c-bc2r ,
+.c-tl2c ,
+.c-tc2r { height: 4px ; width: 190px ; }
 
-.c-bl2c { left: 165px; }
-.c-bc2r { right: 165px; }
+.c-bl2c ,
+.c-bc2r { top: 20px; }
+
+.c-tl2c ,
+.c-tc2r { top: -184px; }
+
+.c-bl2c ,
+.c-tl2c { left: 165px; }
+.c-bc2r ,
+.c-tc2r { right: 165px; }
 .c-ct2b { left: 79px; }
 .c-lt2b { left: 448px; }
 
@@ -175,14 +187,22 @@ h3 { font-size: 30px; }
 .impress-on-overview .switch-c-width,
 .impress-on-overview .switch-c-height { opacity: 0.5; }
 
-#title_hosts_2 .switch-c-width,
+#title_hosts_2 .c-tl2c,
+#title_hosts_2 .c-tc2r,
+#title_hosts_2 .c-lt2b,
 #title_weinre .switch-c-width ,
 #title_weinre .switch-c-height { transition-delay: 1s; }
 
-#title_hosts.active .switch-c-width { width: 0 ; }
-#title_hosts .p-bl:hover~.p-bc .host-id { opacity: 1; }
-.impress-on-title_hosts #title_hosts .p-bl:hover~.c-bl2c ,
-.impress-on-title_hosts #title_hosts .p-br:hover~.c-bc2r { width: 190px; }
+#title_hosts.active .switch-c-width ,
+#title_hosts.active .switch-c-width ,
+#title_hosts_2.active .c-bl2c ,
+#title_hosts_2.active .c-bc2r { width: 0 ; }
+#title_hosts .p-bl:hover~.p-bc .host-id ,
+#title_hosts_2 .p-bl:hover~.p-bc .host-id { opacity: 1; }
+#title_hosts .p-bl:hover~.c-bl2c ,
+#title_hosts .p-br:hover~.c-bc2r ,
+#title_hosts_2 .p-bl:hover~.c-bl2c ,
+#title_hosts_2 .p-br:hover~.c-bc2r { width: 190px; }
 
 
 .connection-host-1 { }
@@ -205,7 +225,7 @@ h3 { font-size: 30px; }
 .popup.safari { top: 64px;   right: 0px;   }
 .popup.chrome { top: 64px;   right: 330px; }
 
-#title_hosts_2 .popup{ left: 0; right: 0; top: -260px; }
+#title_hosts_2 .popup{ left: 0; right: 0; top: -360px; }
 #title_weinre  .popup{ right: -120px; top: -220px; width: 440px; }
 #title_weinre  .popup ol { width: 100%; box-sizing: border-box; color: #FFF; }
 #title_weinre  .popup small { display: block; overflow: hidden; white-space: nowrap;

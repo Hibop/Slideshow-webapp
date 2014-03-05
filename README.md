@@ -1,7 +1,6 @@
 #what's this
 
-A slidshow based on impress.js
+A slidshow based on impress.js. Please checkout [this page](http://alvarto.github.io/Slideshow-webapp/).
 
-Only supports webkit.
+webkit only.
 
-Please checkout the [gh-pages branch](), or checkout [this page]().
