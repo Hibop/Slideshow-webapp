@@ -24,6 +24,9 @@ i, em { font-style: italic }
 
 a { text-decoration: none; color: #FFF; }
 
+label[for] { cursor: pointer; }
+
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -47,7 +50,13 @@ q:before, q:after {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+    line-height: 3;
+    font-size: 20px;
+    white-space: nowrap;
 }
+
+td { vertical-align: middle; padding: 0 1.5em ; border: 1px solid #000; color: #FFF; transition: -webkit-filter .5s; }
+td:hover { -webkit-filter: invert(1); background: #000; }
 
 /*commom*/
 .nt { text-indent: -999em ; outline: none;  }
@@ -138,6 +147,8 @@ h3 { font-size: 30px; }
 #title_hosts .p-tc { -webkit-transform: translateX(-85px) ; }
 #host_mobile .p-tc { -webkit-transform: translateX(85px) ; }
 
+#remote_compaire table { position: absolute; -webkit-transform: translate(0,-50%); }
+
 /*
     第二页的连线部分
  */
@@ -197,10 +208,10 @@ h3 { font-size: 30px; }
 #title_hosts.active .switch-c-width ,
 #title_hosts_2.active .c-bl2c ,
 #title_hosts_2.active .c-bc2r { width: 0 ; }
-#title_hosts .p-bl:hover~.p-bc .host-id ,
+body:not(.impress-on-host_mobile) #title_hosts .p-bl:hover~.p-bc .host-id ,
 #title_hosts_2 .p-bl:hover~.p-bc .host-id { opacity: 1; }
-#title_hosts .p-bl:hover~.c-bl2c ,
-#title_hosts .p-br:hover~.c-bc2r ,
+body:not(.impress-on-host_mobile) #title_hosts .p-bl:hover~.c-bl2c ,
+body:not(.impress-on-host_mobile) #title_hosts .p-br:hover~.c-bc2r ,
 #title_hosts_2 .p-bl:hover~.c-bl2c ,
 #title_hosts_2 .p-br:hover~.c-bc2r { width: 190px; }
 
@@ -226,7 +237,8 @@ h3 { font-size: 30px; }
 .popup.chrome { top: 64px;   right: 330px; }
 
 #title_hosts_2 .popup{ left: 0; right: 0; top: -360px; }
-#title_weinre  .popup{ right: -120px; top: -220px; width: 440px; }
+#title_weinre  .popup.first{ right: -120px; top: -220px; width: 440px; }
+#title_weinre  .popup.info{ right: 0; top: 120px; }
 #title_weinre  .popup ol { width: 100%; box-sizing: border-box; color: #FFF; }
 #title_weinre  .popup small { display: block; overflow: hidden; white-space: nowrap;
     width: 100%; padding-left: 4em; box-sizing: border-box; }
@@ -237,16 +249,19 @@ h3 { font-size: 30px; }
 #popup_firefox:checked~.popup.firefox ,
 #popup_safari:checked~.popup.safari ,
 #popup_chrome:checked~.popup.chrome ,
-#popup_weinre:checked~.popup { opacity: 1; }
+#popup_weinre:checked~.popup.first ,
+#popup_weinre_info:checked~.popup.info { opacity: 1; }
 
 /*
     arrows
  */
 
 h2 sup a ,
-.arr { opacity: 0.4 }
+.arr ,
+sup label[for] { opacity: 0.4 }
 h2 sup a:hover ,
-.arr:hover { opacity: 1 }
+.arr:hover ,
+sup label[for]:hover { opacity: 1 }
 
 .arr.up { top: -170px; left : 50%  ; -webkit-transform: translateX(-50%) ; }
 .arr.left  { top: 50%; left : -80px; -webkit-transform: translateY(-50%) ; }
@@ -260,7 +275,9 @@ h2 sup a:hover ,
 .impress-on-title_hosts ,
 .impress-on-title_hosts_2 { background: rgb(246,188,59); }
 
-.impress-on-title_remote { background: rgb(25,188,156); }
+.impress-on-title_remote ,
+.impress-on-remote_compaire ,
+.impress-on-remote_adb { background: rgb(25,188,156); }
 
 .impress-on-title_weinre { background: rgb(155,89,182); }
 

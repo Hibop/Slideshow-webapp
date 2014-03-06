@@ -29,7 +29,7 @@
                 <image x="0" y="0" width="80px" height="80px" xlink:href="res/ipad.svg"></image>
             </svg>
         </div>
-        <h1>移动端开发与调试</h1>
+        <h1>手机端网页调试方案</h1>
         <p class="switch-o hint">（使用<kbd>←</kbd>和<kbd>→</kbd>进行正常顺序翻页）</p>
         <div class="ef-reverse">
             <a href="#/title_hosts" class="arr up pa">
@@ -95,7 +95,7 @@
                     <image x="0" y="0" width="80px" height="80px" xlink:href="res/document.svg"></image>
                 </svg>
             </div>
-            <p class="host-id switch-o">127.0.0.1 t.com</p>
+            <p class="host-id switch-o">192.168.0.xx t.com</p>
         </div>
         <div class="connection-host"></div>
         <div class="c-bl2c switch-c-width"></div>
@@ -178,7 +178,8 @@
     <div id="title_remote" class="step left title" data-x="-1200" data-y="0">
         <h2>
             <sup>
-                <a href="#/intro_3">⤴</a>
+                <a href="#/remote_compaire">·</a>
+                <a href="#/intro_2">⤴</a>
             </sup>
             远程调试
         </h2>
@@ -209,7 +210,7 @@
             <div class="popup firefox switch-o tr">
                 <ol>
                     <li>
-                        MDN上面的<a href="https://developer.mozilla.org/zh-CN/docs/Tools/Remote_Debugging/Firefox_for_Android" target="_blank">教程</a>
+                        MDN上面的<a href="https://developer.mozilla.org/zh-CN/docs/Tools/Remote_Debugging/Firefox_for_Android" target="_blank">教程</a>／需<a href="http://yun.baidu.com/share/link?uk=1074914478&shareid=2835570041">ADB</a>
                     </li>
                 </ol>
             </div>
@@ -235,6 +236,65 @@
             </div>
         </div>
     </div>
+    <div id="remote_compaire" class="step left title" data-x="-2400" data-y="0">
+        <table>
+        <thead>
+        <tr><td>平台</td>
+              <td>浏览器</td>
+              <td>链接方式</td>
+              <td>使用ADB</td>
+              <td>调试工具</td>
+           </tr></thead>
+        <tbody><tr>
+        <td>iOS</td>
+              <td>Safari (Mac)</td>
+              <td>数据线</td>
+              <td>不</td>
+              <td>Inspector</td>
+           </tr>
+        <tr>
+        <td rowspan="3">Android</td>
+              <td>Android Chrome</td>
+              <td>数据线</td>
+              <td>内置</td>
+              <td>Inspector</td>
+           </tr>
+        <tr>
+        <td>Firefox For Mobile</td>
+              <td>数据线</td>
+              <td>是</td>
+              <td>Firefox原生调试工具</td>
+           </tr>
+        <tr>
+        <td>UC 开发者工具</td>
+              <td>数据线</td>
+              <td>是</td>
+              <td>Inspector</td>
+           </tr>
+        </tbody></table>
+        <h2>
+            <sup>
+                <a href="#/intro_3">⤴</a>
+                <!-- <a href="#/remote_adb">·</a> -->
+                <a href="#/title_remote">·</a>
+            </sup>
+            远程调试 对比
+        </h2>
+    </div>
+<!--     <div id="remote_adb" class="step left title" data-x="-2100" data-y="0">
+        <ol>
+            <li>adb forward tcp:6000 tcp:6000</li>
+            <li>adb devices</li>
+            <li>adb kill-server</li>
+        </ol>
+        <h2>
+            <sup>
+                <a href="#/intro_3">⤴</a>
+                <a href="#/remote_compaire">·</a>
+            </sup>
+            ADB 一些命令
+        </h2>
+    </div> -->
     <div id="intro_3" class="step" data-x="0" data-y="0"></div>
     <div id="title_weinre" class="step right title" data-x="1200" data-y="0">
         <label class="p-tl" for="popup_weinre">
@@ -265,21 +325,28 @@
             Weinre调试服务器
             <sup>
                 <a href="#/intro_3">⤴</a>
+                <label for="popup_weinre_info">i</label>
             </sup>
         </h2>
         <div class="popup-container">
             <input type="checkbox" id="popup_weinre" class="dn">
-            <div class="popup switch-o tc">
+            <input type="checkbox" id="popup_weinre_info" class="dn">
+            <div class="popup first switch-o tc">
                 <ol class="tl">
                     <li>安　装：<i>npm -g install weinre</i></li>
                     <li>移动端和调试服务器连入同一个wifi</li>
-                    <li>移动端：在页面中引入target-script-min.js</li>
-                    <li><small><i>&lt;script src="http://192.168.0.106:8081/
-                        target/target-script-min.js#anonymous" /&gt;</i></small></li>
                     <li>服务器：开启weinre监听端口</li>
                     <li><small><i>weinre --httpPort 8081 --boundHost 192.168.0.106</i></small></li>
-                    <li>服务器：打开Debug页面</li>
-                    <li><small><i>http://192.168.0.106:8081/client/#anonymous</i></small></li>
+                    <li>移动端：在页面中引入target-script-min.js</li>
+                    <li>服务器：打开Debug页面，进入相应target</li>
+                </ol>
+            </div>
+            <div class="popup info switch-o tc">
+                <ol class="tl">
+                    <li>局限性</li>
+                    <li>不支持实时改CSS</li>
+                    <li>不支持单点调试</li>
+                    <li>不支持非原生代码</li>
                 </ol>
             </div>
         </div>
@@ -287,19 +354,26 @@
         <div class="c-ct2b switch-c-height"></div>
         <div class="c-bl2c switch-c-width"></div>
     </div>
+
     <div id="overview" class="step" data-x="100" data-y="-350" data-scale="2">
     </div>
     <div id="gratitude" class="step" data-x="1800" data-y="1200" data-z="-3000" data-rotate="30" data-scale="1">
         <a href="#/intro" class="fr">⤴</a>
         <h2>
-            致谢
+            引用
         </h2>
         <ul>
             <li>
                 <a href="http://ikons.piotrkwiatkowski.co.uk/">ICON来源</a>
             </li>
             <li>
-                Impress.js
+                <a href="https://github.com/bartaz/impress.js">Impress.js</a>
+            </li>
+            <li>
+                <a href="https://code.google.com/p/android-screen-monitor/">Android Screen Monitor</a>
+            </li>
+            <li>
+                <a href="http://blog.segmentfault.com/humphry/1190000000313211">我的博客：手机端网页调试方案</a>
             </li>
         </ul>
     </div>
